@@ -1,0 +1,14 @@
+<div ng-controller="TodosCtrl">
+  <h1>Todos</h1>
+
+  <form ng-submit="addTodo($event)">
+    <input type="text" class="form-control" ng-model="nextTodo" placeholder="Add a todo...">
+  </form>
+
+  <ul class="todos">
+    <li ng-repeat="todo in todos">
+      <input type="checkbox" ng-click="toggleComplete(todo)" ng-model="todo.complete"> <span ng-class="{complete: todo.complete}">{{ todo.title }}</span>
+      <%= link_to 'remove', '#', html_options = { "ng-click" => "deleteTodo($event, todo)", class: "delete-todo"}  %>&nbsp;
+    </li>
+  </ul>
+</div>
